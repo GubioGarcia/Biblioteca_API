@@ -17,18 +17,18 @@ public class Categoria {
     private String nome;
 
     @Column
-    private String descrição;
+    private String descricao;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Livro> livros;
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Livro> livros = new ArrayList<>();
 
     public Categoria() {
     }
 
-    public Categoria(Integer id, String nome, String descrição) {
+    public Categoria(Integer id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
-        this.descrição = descrição;
+        this.descricao = descricao;
     }
 
     public Integer getId() {
@@ -48,11 +48,11 @@ public class Categoria {
     }
 
     public String getDescrição() {
-        return descrição;
+        return descricao;
     }
 
-    public void setDescrição(String descrição) {
-        this.descrição = descrição;
+    public void setDescrição(String descricao) {
+        this.descricao = descricao;
     }
 
     public List<Livro> getLivros() {

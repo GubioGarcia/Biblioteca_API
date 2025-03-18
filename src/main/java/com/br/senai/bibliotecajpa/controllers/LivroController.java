@@ -25,12 +25,12 @@ public class LivroController {
     }
 
     @PostMapping
-    public Livro saveLivro(Livro livro) {
+    public Livro saveLivro(@RequestBody Livro livro) {
         return livroService.save(livro);
     }
 
     @PutMapping
-    public Livro updateLivro(Livro livro) {
+    public Livro updateLivro(@RequestBody Livro livro) {
         return livroService.update(livro);
     }
 
